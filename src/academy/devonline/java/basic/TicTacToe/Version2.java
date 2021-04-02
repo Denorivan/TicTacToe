@@ -3,7 +3,7 @@ package academy.devonline.java.basic.TicTacToe;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main {
+public class Version2 {
     public static final String USER_SIGN = "X";
     public static final String USER_SIGN_SECOND = "O";
     public static final String AI_SIGN = "O";
