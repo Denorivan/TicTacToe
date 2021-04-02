@@ -185,12 +185,12 @@ public class TTT {
 
     // подсчет 'х', 'о' и пустых клеток
     void count(int row, int col) {
-        if (this.table[row][col] == SignX) {
-            this.countX++;
+        if (table[row][col] == SignO) {
+            this.countO++;
         }
 
-        if (this.table[row][col] == SignO) {
-            this.countO++;
+        if (this.table[row][col] == SignX) {
+            this.countX++;
         }
 
         if (this.table[row][col] == SignEmpty) {
@@ -204,14 +204,13 @@ public class TTT {
         this.free = 0;
     }
 
-    // близко проигрышная ситуация для программы
-    boolean isLosingNear() {
-        return (this.free == 1 && this.countX == 2);
-    }
-
     // близко выигрыш
     boolean isWinNear() {
         return (this.free == 1 && this.countO == 2);
+    }
+    // близко проигрышная ситуация для программы
+    boolean isLosingNear() {
+        return (this.free == 1 && this.countX == 2);
     }
 
     // проверка выигрыша
