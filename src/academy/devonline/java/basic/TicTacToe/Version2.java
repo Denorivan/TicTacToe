@@ -223,7 +223,6 @@ public class Version2 {
             while (isCellBusy(x, y));
         }
         field[x][y] = AI_SIGN;
-        System.out.println("x = " + x + "| y = " + y + "| ai_win = " + ai_win + "| user_win = " + user_win);
     }
 
 
