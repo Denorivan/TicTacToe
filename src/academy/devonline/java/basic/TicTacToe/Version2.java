@@ -175,8 +175,8 @@ public class Version2 {
     }
 
     public static void aiShot() {
-        int x = -1;
-        int y = -1;
+        int x = 1;
+        int y = 1;
         boolean ai_win = false;
         boolean user_win = false;
         // Находим выигрышный ход
