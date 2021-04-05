@@ -195,7 +195,7 @@ public class Version2 {
                 }
             }
         }
-        // Блокировка хода пользователя, если он побеждает на следующем ходу
+
         if (aiLevel > 0) {
             if (!ai_win) {
                 for (int i = 0; i < DIMENSION; i++) {
@@ -241,22 +241,7 @@ public class Version2 {
         }
         return true;
     }
-
     public static boolean checkWin(String sign) {
-        for (int i = 0; i < DIMENSION; i++) {
-            // проверяем строки
-            if (checkLine(i, 0, 0, 1, sign)) return true;
-            // проверяем столбцы
-            if (checkLine(0, i, 1, 0, sign)) return true;
-        }
-        // проверяем диагонали
-        if (checkLine(0, 0, 1, 1, sign)) return true;
-        if (checkLine(0, DIMENSION - 1, 1, -1, sign)) return true;
-        return false;
-    }
-
-
-    public static boolean checkWin2(String sign) {
         // проверка по строкам
         {
             for (int i = 0; i < DIMENSION; i++) {
