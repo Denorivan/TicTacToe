@@ -36,6 +36,7 @@ public class Version2 {
                 break;
             }
             if (count == Math.pow(DIMENSION, 2)) {
+
                 printField();
                 break;
             }
@@ -52,6 +53,11 @@ public class Version2 {
             if (checkWin(USER_SIGN)) {
                 System.out.println("USER WIN!!!");
                 printField();
+                break;
+            }
+            if (count == Math.pow(DIMENSION, 2)) {
+                printField();
+                System.out.println("It's Draw");
                 break;
             }
             aiShot();
@@ -73,7 +79,7 @@ public class Version2 {
         System.out.println("1. Игра против компьютера.");
         System.out.println("2. 2 игрока.");
         System.out.println("3. Выход.");
-        int i = 0;
+        int i;
         Scanner sc = new Scanner(System.in);
         i = sc.nextInt();
         switch (i) {
@@ -102,7 +108,7 @@ public class Version2 {
         System.out.println("3. Сложный.");
         System.out.println("4. Вернуться в предыдущее меню.");
         System.out.println("5. Выход.");
-        int i = 0;
+        int i;
         Scanner sc = new Scanner(System.in);
         i = sc.nextInt();
         switch (i) {
@@ -158,8 +164,8 @@ public class Version2 {
     }
 
     public static void userShot(String sign, int i) {
-        int x = -1;
-        int y = -1;
+        int x;
+        int y;
         do {
             if (i == 0) {
                 System.out.println("Введите координаты x y (1 - " + DIMENSION + "): ");
@@ -230,42 +236,30 @@ public class Version2 {
         if (x < 0 || y < 0 || x > DIMENSION - 1 || y > DIMENSION - 1) {
             return false;
         }
-        return field[x][y] != NOT_SIGN;
+        return !field[x][y].equals(NOT_SIGN);
     }
 
-    public static boolean checkLine(int start_x, int start_y, int dx, int dy, String sign) {
-        for (int i = 0; i < DIMENSION; i++) {
-            if (field[start_x + i * dx][start_y + i * dy] != sign)
-                return false;
-        }
-        return true;
-    }
     public static boolean checkWin(String sign) {
         // проверка по строкам
-        {
             for (int i = 0; i < DIMENSION; i++) {
-                if (field[i][0] == sign && field[i][1] == sign && field[i][2] == sign) {
+                if (field[i][0].equals(sign) && field[i][1].equals(sign) && field[i][2].equals(sign)) {
                     return true;
                 }
             }
-        }
         // проверка по столбцам
-        {
             for (int j = 0; j < DIMENSION; j++) {
-                if (field[0][j] == sign && field[1][j] == sign && field[2][j] == sign) {
+                if (field[0][j].equals(sign) && field[1][j].equals(sign) && field[2][j].equals(sign)) {
                     return true;
                 }
             }
-        }
+
         // проверка диагоналей
-        {
-            if (field[0][0] == sign && field[1][1] == sign && field[2][2] == sign) {
+            if (field[0][0].equals(sign) && field[1][1].equals(sign) && field[2][2].equals(sign)) {
                 return true;
             }
-            if (field[0][2] == sign && field[1][1] == sign && field[2][0] == sign) {
+            if (field[0][2].equals(sign) && field[1][1].equals(sign) && field[2][0].equals(sign)) {
                 return true;
             }
-        }
         return false;
     }
 }
